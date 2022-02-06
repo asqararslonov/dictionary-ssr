@@ -1,6 +1,11 @@
 const express = require("express");
 const route = express.Router();
-const { indexView, postView, wordPOST, wordGET } = require("../controller/clienController");
+const {
+  indexView,
+  postView,
+  wordPOST,
+  wordGET,
+} = require("../controller/clienController");
 
 route.get("/", indexView);
 

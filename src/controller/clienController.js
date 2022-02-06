@@ -57,14 +57,17 @@ const indexView = async (req, res) => {
 
 const wordGET = async (req, res) => {
   res.render("pages/client/add");
-
-}
+};
 const wordPOST = async (req, res) => {
-  return res.render('pages/client/add', { ok: false, message: "", method: 'GET' })
-}
+  return res.render("pages/client/add", {
+    ok: false,
+    message: "",
+    method: "GET",
+  });
+};
 
 const postView = async (req, res) => {
-  const { id } = req.params
+  const { id } = req.params;
   let searchQuery = "";
   if (id) {
     let posts = await loadPosts();
@@ -87,5 +90,5 @@ module.exports = {
   indexView,
   postView,
   wordGET,
-  wordPOST
+  wordPOST,
 };

@@ -15,7 +15,7 @@
         <tbody>
           <% for(let index in data) {%>
             <tr>
-            <th scope="row"><%= +index + 1%></th>
+            <th scope="row"><%= data[index]["id"]%></th>
             <td><%= data[index]['title'] %> </td>
             <td><%= data[index]['description'] %></td>
             <td>

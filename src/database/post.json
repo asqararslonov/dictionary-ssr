@@ -1,27 +1,32 @@
 [
     {
         "id": 1,
-        "title": "Computer",
-        "description": "A computer is a digital electronic machine that can be programmed to carry out sequences of arithmetic or logical operations (computation) automatically."
+        "title": "dsadsa",
+        "description": "sadsad"
     },
     {
         "id": 2,
-        "title": "Ikkinchi postim",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur magnam molestias nemo voluptatem, fugiat praesentium amet. Adipisci temporibus possimus modi?"
+        "title": "1",
+        "description": "adada"
     },
     {
         "id": 3,
-        "title": "Uchinchi postim",
-        "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur magnam molestias nemo voluptatem, fugiat praesentium amet. Adipisci temporibus possimus modi?"
+        "title": "1",
+        "description": "adada"
     },
     {
         "id": 4,
-        "word": "sad",
-        "description": "ad"
+        "title": "1",
+        "description": "adada"
     },
     {
         "id": 5,
-        "word": "sad",
-        "description": "asd"
+        "title": "1",
+        "description": "adada"
+    },
+    {
+        "id": 6,
+        "title": "1",
+        "description": "adada"
     }
 ]
