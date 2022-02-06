@@ -10,7 +10,7 @@ const {
 
 } = require("../controller/authController");
 
-const {wordGET,addWord} = require("../controller/wordController")
+const wordAddPOST = require("../controller/wordController.js")
 
 route.get("/admin/user", userIndexView);
 route.get("/admin/user/create", userAddViewGET);
@@ -20,6 +20,6 @@ route.get("/auth/login", authLogin);
 route.post("/auth/login", authLoginPOST);
 
 route.get("/auth/logout", logout);
-route.post("/addword/add", wordGET);
+route.post("/addword/add", wordAddPOST);
 
 module.exports = route;

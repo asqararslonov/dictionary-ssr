@@ -48,7 +48,7 @@ async function addWord(title, description) {
       return { ok: false, message: 'alredy username exists' }
     }
 
-    let newWord = {
+    let newUser = {
       id: words.length ? words[words.length - 1].id + 1 : 1,
       title,
       description,
