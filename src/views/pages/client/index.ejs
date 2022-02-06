@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div class="row">
+        <% for(let item of dataPost) {%>
+        <div class="col-3">
+            <div class="card m-1">
+                <div class="card-body">
+                  <h5 class="card-title"><%= item['word'] %></h5>
+                  <p class="card-text"><%= item['description'] %></p>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>
+
+<!--<div class="container mt-4">-->
+<!--    <h1 class="text-center">Found any word !</h1>-->
+<!--</div>-->

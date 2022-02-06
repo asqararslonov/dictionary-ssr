@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-6 offset-3">
+
+            <% if(!ok && method == 'POST') {%>
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    Username or password wrong!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% } %>  
+
+            <form method="post" action="/auth/login">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

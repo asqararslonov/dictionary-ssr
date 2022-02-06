@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    
+    <div class="col-8 offset-2">
+    <a href="/admin/user/create" class="btn btn-primary btn-sm mt-5">Add user</a>
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full name</th>
+            <th scope="col">username</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let index in data) {%>
+            <tr>
+            <th scope="row"><%= +index + 1%></th>
+            <td><%= data[index]['fullName'] %> </td>
+            <td><%= data[index]['username'] %></td>
+            <td>
+              <a href="/admin/user/edit/<%= data[index]['id'] %>" class="btn btn-outline-warning btn-sm">edit</a>
+              <a href="/admin/user/delete/<%= data[index]['id'] %>" class="btn btn-outline-danger btn-sm">delete</a>
+            </td>
+          </tr>
+            <% } %>  
+          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
