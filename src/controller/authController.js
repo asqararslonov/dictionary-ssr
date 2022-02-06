@@ -11,7 +11,7 @@ async function loadUser() {
 }
 async function loadWord() {
   let data = await fs.readFile(
-      path.join(process.cwd(), 'src', 'database', 'word.json'),
+      path.join(process.cwd(), 'src', 'database', 'new.json'),
       'utf-8'
   )
   return data ? JSON.parse(data) : []
@@ -64,7 +64,7 @@ async function addWord(title, description) {
 }
 
 const userIndexView = async(req, res) => {
-  let users = await loadUser()
+  let users = await loadWord()
   return res.render('pages/admin/auth/index', { data: users })
 }
 

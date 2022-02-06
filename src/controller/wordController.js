@@ -3,16 +3,19 @@ const path = require("path");
 
 async function wordGET(word, description) {
     if (word && description ) {
-        let words = await loadWord()
-        let $word = words.find(el => el['title'] == word)
-        let desc = words.find(el => el['description'] == description)
-        if ($word || desc) {
-            return { ok: false, message: 'word username exists' }
+        let words = await loadWord( path.join(process.cwd(), 'src', 'database', 'post.json'))
+        let newWords = await loadWord( path.join(process.cwd(), 'src', 'database', 'new.json'))
+        let $word = newWords.find(el => el['title'] == word)
+        let desc = newWords.find(el => el['description'] == description)
+        let $newWord = newWords.find(el => el['title'] == word)
+        let newDesc = newWords.find(el => el['description'] == description)
+        if ($word || desc && $newWord || newDesc) {
+            return { ok: false, message: 'word exists' }
         }
 
         const newWord = {
-            id: words.length ? words[words.length - 1].id + 1 : 1,
-              word,
+            id: newWords.length ? newWords[newWords.length - 1].id + 1 : 1,
+            title:  word,
             description
         }
         // let newUser = {
@@ -20,11 +23,11 @@ async function wordGET(word, description) {
         //
         // }
 
-        words.push(newWord)
+        newWords.push(newWord)
 
         await fs.writeFile(
-            path.join(process.cwd(), 'src', 'database', 'post.json'),
-            JSON.stringify(words, null, 4))
+            path.join(process.cwd(), 'src', 'database', 'new.json'),
+            JSON.stringify(newWords, null, 4))
         return { ok: true, message: 'user created' }
     } else {
         return { ok: false, message: 'error' }
@@ -32,9 +35,9 @@ async function wordGET(word, description) {
 }
 
 
-async function loadWord() {
+async function loadWord(read) {
     let data = await fs.readFile(
-        path.join(process.cwd(), 'src', 'database', 'post.json'),
+       read,
         'utf-8'
     )
     return data ? JSON.parse(data) : []
@@ -47,6 +50,7 @@ const wordAddPOST = async(req, res) => {
     }
     // return res.render('pages/admin/auth/create', { ok, message: message, method: 'POST' })
 }
+
 
 
 module.exports = wordAddPOST;

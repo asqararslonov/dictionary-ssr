@@ -12,9 +12,9 @@ const {
 
 const wordAddPOST = require("../controller/wordController.js")
 
-route.get("/admin/user", userIndexView);
-route.get("/admin/user/create", userAddViewGET);
-route.post("/admin/user/create", userAddViewPOST);
+route.get("/admin/words", userIndexView);
+route.get("/admin/words/create", userAddViewGET);
+route.post("/admin/words/create", userAddViewPOST);
 
 route.get("/auth/login", authLogin);
 route.post("/auth/login", authLoginPOST);

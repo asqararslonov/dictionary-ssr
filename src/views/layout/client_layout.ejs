@@ -21,14 +21,16 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                    </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse " id="navbarSupportedContent">
                             <form class="d-flex" action="/">
                                 <input class="form-control me-2 search" name="search" value="<%=searchQuery%>" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success submit" type="submit">
                                 Search</button>
                             </form>
-                            <button class="btn btn-primary" style="margin-left: 10px; float:right"><a href="/addword" class="text-light
-                          text-decoration-none" target="_blank">Add    Word</a></button>
+                            <button class="btn btn-primary btn-sm" style="margin-left: 10px; float:right">
+                                <a href="/addword" class="text-light text-decoration-none" target="_blank">Add    Word</a>
+                            </button>
+
                         </div>
                     </div>
                 </nav>
