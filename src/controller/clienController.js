@@ -18,12 +18,9 @@ const indexView = async (req, res) => {
   if (search) {
     searchQuery = search;
     for (const item of posts) {
-      if (
-        item["title"].includes(search) ||
-        item["description"].includes(search)
-      ) {
+      if (item["title"].includes(search)) {
         postArray.push(item);
-        console.log("12");
+        console.log(item);
       }
     }
     if (postArray.length != 1) {

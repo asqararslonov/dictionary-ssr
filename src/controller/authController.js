@@ -16,7 +16,6 @@ async function loadWord() {
   );
   return data ? JSON.parse(data) : [];
 }
-
 async function addUser(fullName, username, password) {
   if (fullName && username && password) {
     let users = await loadUser();
@@ -41,30 +40,6 @@ async function addUser(fullName, username, password) {
     return { ok: false, message: "error" };
   }
 }
-async function addWord(title, description) {
-  if (title && description) {
-    let words = await loadWord();
-    let word = words.find((el) => el["title"] == title);
-    if (word) {
-      return { ok: false, message: "alredy username exists" };
-    }
-
-    let newUser = {
-      id: words.length ? words[words.length - 1].id + 1 : 1,
-      title,
-      description,
-    };
-    users.push(newUser);
-    await fs.writeFile(
-      path.join(process.cwd(), "src", "database", "user.json"),
-      JSON.stringify(users, null, 4)
-    );
-    return { ok: true, message: "user created" };
-  } else {
-    return { ok: false, message: "error" };
-  }
-}
-
 const userIndexView = async (req, res) => {
   let users = await loadWord();
   return res.render("pages/admin/auth/index", { data: users });
@@ -79,8 +54,8 @@ const userAddViewGET = async (req, res) => {
 };
 
 const userAddViewPOST = async (req, res) => {
-  const { fullName, username, password } = req.body;
-  const { ok, message } = await addUser(fullName, username, password);
+  const { title, description } = req.body;
+  const { ok, message } = await addUser(title, description);
   if (ok) {
     return res.redirect("/admin/user");
   }
@@ -129,12 +104,6 @@ const authLoginPOST = async (req, res) => {
 const logout = (req, res) => {
   return res.cookie("token", "").redirect("/auth/login");
 };
-// const wordGET = (req, res) => {
-//   const {word, description} = req.body
-//   if(word && description){
-//     console.log(word, description)
-//   }
-// }
 
 module.exports = {
   userIndexView,
@@ -143,5 +112,4 @@ module.exports = {
   authLogin,
   authLoginPOST,
   logout,
-  // wordGET
 };
